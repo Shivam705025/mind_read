@@ -1,73 +1,52 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  box-sizing: border-box;
+  height: 100vh;
+  background: #2f2f2f;
+  width: calc(100% - 33px);
 }
 
-.header {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 1rem;
+canvas {
+  position: absolute;
 }
-
-.title {
-  margin: 0;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-}
-
 .container {
-  margin-bottom: 1rem;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-}
-
-.video {
-  display: block;
-  width: 100%;
-}
-
-.results {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 800px;
   width: 100%;
-}
-
-.result-item {
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  align-items: center;
+}
+.result-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.result-container > div {
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  margin: 5px 0;
+  color: white;
+  text-transform: capitalize;
+}
+#age {
+  background: #1e94be;
+}
+#emotion {
+  background: #8a1025;
+}
+#gender {
+  background: #62d8a5;
+}
+video {
+  width: 100%;
+}
+header {
+  background: #42a5f5;
+  color: white;
+  width: 100%;
+  font-size: 2rem;
   padding: 1rem;
-  text-align: center;
-  width: calc(33.33% - 1rem);
-}
-
-.result-label {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.result-value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
+  font-size: 2rem;
 }
