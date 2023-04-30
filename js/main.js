@@ -1,3 +1,4 @@
+const counts = 0;
 const video = document.getElementById("video");
 const isScreenSmall = window.matchMedia("(max-width: 700px)");
 let predictedAges = [];
@@ -71,7 +72,7 @@ const openaiApiKey = decodedString;
 const openaiUrl = 'https://api.openai.com/v1/engines/davinci-codex/completions';
 
 // Inside the `onPlay` function, after detecting the face expression
-if (resizedDetections && Object.keys(resizedDetections).length > 0) {
+if (resizedDetections && Object.keys(resizedDetections).length > 0 && counts < 1) {
   let prompt = '';
 
   if (expressions.happy > 0.5) {
@@ -81,7 +82,7 @@ if (resizedDetections && Object.keys(resizedDetections).length > 0) {
   } else {
     prompt = 'Write a scientific story.';
   }
-
+  counts = 1;
   // Call OpenAI API to generate story text
   const data = {
     prompt,
