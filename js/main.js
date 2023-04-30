@@ -1,4 +1,3 @@
-const counts = 0;
 const video = document.getElementById("video");
 const isScreenSmall = window.matchMedia("(max-width: 700px)");
 let predictedAges = [];
@@ -65,47 +64,7 @@ video.addEventListener("playing", () => {
       document.getElementById("age").innerText = `Age - ${interpolatedAge}`;
       document.getElementById("gender").innerText = `Gender - ${gender}`;
       document.getElementById("emotion").innerText = `Emotion - ${emotion[0]}`;
-      // Set up OpenAI API
-      const encodedString = "c2std3lKMnZKdWN4VjhLTDRzUnRNTkJUM0JsYmtGSklrUFR3eWZkRkZZQXZsT2QwM3pj";
-const decodedString = atob(encodedString);
-const openaiApiKey = decodedString;
-const openaiUrl = 'https://api.openai.com/v1/engines/davinci-codex/completions';
-
-// Inside the `onPlay` function, after detecting the face expression
-if (resizedDetections && Object.keys(resizedDetections).length > 0 && counts < 1) {
-  let prompt = '';
-
-  if (expressions.happy > 0.5) {
-    prompt = 'Write an educational story.';
-  } else if (expressions.sad > 0.5) {
-    prompt = 'Write a happy story.';
-  } else {
-    prompt = 'Write a scientific story.';
-  }
-  counts = 1;
-  // Call OpenAI API to generate story text
-  const data = {
-    prompt,
-    max_tokens: 100,
-    n: 1,
-    stop: '.',
-  };
-
-  fetch(openaiUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${openaiApiKey}`,
-    },
-    body: JSON.stringify(data),
-  })
-  .then((response) => response.json())
-  .then((data) => {
-    const story = data.choices[0].text;
-    document.getElementById('story-container').innerHTML = story;
-  })
-  .catch((error) => console.log(error));
-}
+     
 
     }
   }, 10);
